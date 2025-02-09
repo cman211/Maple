@@ -107,42 +107,67 @@ body {
 /* Features Section */
 .features {
     padding: 40px 20px;
+    background-color: #121212; /* Dark background for contrast */
+    text-align: center;
 }
 
 .features h2 {
     text-align: center;
+    color: #ffffff;
     margin-bottom: 30px;
+    font-size: 2rem;
 }
 
 .feature-grid {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+    justify-content: center; /* Center the feature boxes */
+    align-items: stretch; /* Ensure equal height for boxes */
+    gap: 20px; /* Space between the boxes */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .feature-item {
-    background-color: #292929;
+    background-color: #292929; /* Slightly lighter gray */
     padding: 20px;
     border-radius: 8px;
+    width: 300px; /* Fixed width for better alignment */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     text-align: center;
-    flex: 1 1 calc(33.333% - 20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 .feature-item i {
-    font-size: 2rem;
-    color: #ff6600;
-    margin-bottom: 10px;
+    font-size: 2.5rem; /* Larger icon */
+    color: #ff6600; /* Accent color */
+    margin-bottom: 15px;
 }
 
 .feature-item h3 {
+    font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
 .feature-item p {
-    color: #cccccc;
+    font-size: 1rem;
+    color: #cccccc; /* Softer gray text */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .feature-grid {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center items in a column */
+    }
+
+    .feature-item {
+        width: 90%; /* Take full width on small screens */
+    }
 }
 
 /* Footer */
