@@ -12,7 +12,7 @@
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="container">
-            <img src="Maple_logo.webp" alt="Maple Logo" class="logo">
+            <img src="Maple.webp" alt="Maple Logo" class="logo">
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -30,6 +30,17 @@
         <div class="hero-content">
             <h1>Welcome to Maple Bot Dashboard</h1>
             <p>Your ultimate bot management platform.</p>
+        </div>
+    </section>
+
+    <!-- Server Count Section -->
+    <section class="status">
+        <div class="container">
+            <h2>Total Servers</h2>
+            <div class="status-card">
+                <h3>🌍 Servers</h3>
+                <p id="server-count">Loading...</p>
+            </div>
         </div>
     </section>
 
@@ -58,15 +69,30 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="discord">
+    <footer class="footer">
         <div class="container">
-            <p>Join our Discord for support and updates.</p>
-            <a href="https://discord.gg/Zyw8gGef" target="_blank" class="w3-button discord-icon">
-                <i class="fab fa-discord"></i>
-            </a>
+            <p>© 2025 Maple Bot Dashboard. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Script to Fetch and Display Server Count
+        document.addEventListener("DOMContentLoaded", () => {
+            const fetchServerCount = async () => {
+                try {
+                    console.log("Fetching server count...");
+                    const response = await fetch("/.netlify/functions/getServerCount");
+                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                    const data = await response.json();
+                    document.getElementById("server-count").textContent = `${data.server_count} Servers`;
+                } catch (error) {
+                    console.error("Error fetching server count:", error);
+                    document.getElementById("server-count").textContent = "Error: Could not load server count";
+                }
+            };
+
+            fetchServerCount();
+        });
+    </script>
 </body>
 </html>
