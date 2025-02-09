@@ -51,12 +51,12 @@ body {
 }
 
 /* Hero Background */
-.logo {
-    background: url("Maple_logo.webp") no-repeat center center/cover;
-    background-attachment: scroll; /* Make the background scroll with the page */
+.hero {
+    background: url("Maple_logo.webp") no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll; /* Ensure the background scrolls */
     height: 100vh; /* Full-screen height */
 }
-
 
 .hero h1 {
     font-size: 3rem; /* Large font size for title */
