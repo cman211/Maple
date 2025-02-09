@@ -51,21 +51,29 @@ body {
 }
 
 /* Hero Background */
+/* Default: Fixed background for large screens */
 .herobg {
     background: url("Maple.webp") no-repeat center center;
     background-size: cover;
-    background-attachment: scroll;
+    background-attachment: fixed; /* Keeps background fixed */
     height: 100vh;
-    position: relative; /* Ensure scrolling applies */
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 100px; /* Space above the server section */
 }
 
-
-@media only screen and (max-device-width: 1600px) {
+/* Override: Scroll background on smaller screens */
+@media only screen and (max-width: 1600px) {
     .herobg {
-        min-height: 400px; /* Maintain consistent height */
+        background-attachment: scroll; /* Allows background to scroll on smaller screens */
+        min-height: 400px;
     }
 }
+
+
 
 .hero h1 {
     font-size: 3rem; /* Large font size for title */
