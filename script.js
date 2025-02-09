@@ -1,21 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const fetchServerCount = async () => {
-        try {
-            // Fetch server count from the Netlify function
-            const response = await fetch("/.netlify/functions/getServerCount");
-            const data = await response.json();
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-            // Update server count on the page
-            if (data.server_count !== undefined) {
-                document.getElementById("server-count").innerText = `${data.server_count} Servers`;
-            } else {
-                document.getElementById("server-count").innerText = "Error";
-            }
-        } catch (error) {
-            console.error("Error fetching server count:", error);
-            document.getElementById("server-count").innerText = "Error";
-        }
-    };
-
-    fetchServerCount();
+app.get("/serverCount", async (req, res) => {
+    try {
+        await client.guilds.cache.fetch(); // Ensure cache is updated
+        const serverCount = client.guilds.cache.size;
+        res.json({ server_count: serverCount });
+    } catch (error) {
+        console.error("Error fetching server count:", error);
+        res.status(500).json({ error: "Failed to fetch server count" });
+    }
 });
+
+app.listen(PORT, () => console.log(`Bot backend running on port ${PORT}`));
