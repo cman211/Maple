@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Replace these values with your actual webhook URL and API key
     const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace with your webhook URL
-    const apiKey = "YOUR_API_KEY"; // Replace with your BotGhost API key
+    const apiKey = "c18f4090770f3529018b8b22aff75ce8b3db36e464ca765b6eec814e48e42b73"; // Replace with your BotGhost API key
 
     // Function to fetch bot status
     const fetchBotStatus = () => {
@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
             body: JSON.stringify({
                 variables: [
                     {
-                        name: "nickname", // Example variable name
-                        variable: "{nickname}", // Match this to the variable in your BotGhost event
+                        name: "Maple", // Example variable name
+                        variable: "{Maple}", // Match this to the variable in your BotGhost event
                         value: "Maple",
                     },
                 ],
