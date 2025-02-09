@@ -9,7 +9,7 @@ exports.handler = async (event) => {
 
   const clientId = process.env.DISCORD_CLIENT_ID;
   const clientSecret = process.env.DISCORD_CLIENT_SECRET;
-  const redirectUri = "https://maple-official.netlify.app/.netlify/functions/auth-callback";
+  const redirectUri = process.env.REDIRECT_URI;
 
   try {
     // Exchange the code for an access token
