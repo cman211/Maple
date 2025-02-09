@@ -7,7 +7,7 @@ let cacheExpiration = 0; // Timestamp for when the cache expires
 exports.handler = async function () {
     console.log("Starting getServerCount function...");
 
-    const CACHE_DURATION = 5 * 60 * 1000; // Cache duration in milliseconds (5 minutes)
+        const CACHE_DURATION = 1 * 60 * 1000; // 1 minute in milliseconds
 
     // Check if the cache is valid
     if (cachedServerCount !== null && Date.now() < cacheExpiration) {
