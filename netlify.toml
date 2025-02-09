@@ -1,7 +1,7 @@
 [build]
   command = "npm install"
+  publish = "/"  # ✅ This ensures Netlify deploys from the correct root folder
   functions = "netlify/functions"
-  publish = "public"
 
 [build.environment]
   NODE_VERSION = "18"
