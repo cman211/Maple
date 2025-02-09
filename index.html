@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maple Bot Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Maple Bot</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="#"><i class="fas fa-list"></i> Commands</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome to Maple Dashboard</h1>
+            <button id="trigger-command">Send Command</button>
+        </header>
+
+        <section class="dashboard">
+            <div class="card">
+                <h3>Bot Status</h3>
+                <p id="bot-status">Checking...</p>
+            </div>
+            <div class="card">
+                <h3>Users Online</h3>
+                <p id="users-online">0</p>
+            </div>
+            <div class="card">
+                <h3>Recent Logs</h3>
+                <p id="recent-logs">Loading...</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
