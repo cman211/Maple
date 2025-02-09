@@ -50,17 +50,13 @@ body {
     color: #ff6600;
 }
 
-/* Hero Section */
+/* Hero Background */
 .hero {
-    background: url("Maple.webp") no-repeat center center/cover; /* Full-width background */
+    background: url("Maple.webp") no-repeat center center/cover;
+    background-attachment: scroll; /* Make the background scroll with the page */
     height: 100vh; /* Full-screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Push content to the bottom */
-    align-items: center;
-    text-align: center;
-    padding-bottom: 100px; /* Adjust the space above the Server Count Section */
 }
+
 
 .hero h1 {
     font-size: 3rem; /* Large font size for title */
@@ -76,24 +72,36 @@ body {
 
 /* Status Section */
 .status {
-    padding: 40px 20px;
-    background-color: #121212;
-    text-align: center; /* Center the section */
+    padding: 60px 20px; /* Add padding around the section */
+    background-color: #121212; /* Dark background for contrast */
+    text-align: center; /* Center all content */
+}
+
+.status h1 {
+    font-size: 3rem; /* Large font size for title */
+    margin-bottom: 10px; /* Space below the title */
+    color: #ffffff; /* White text */
+}
+
+.status p {
+    font-size: 1.2rem; /* Slightly smaller subtitle font */
+    margin-bottom: 40px; /* Space below the subtitle */
+    color: #cccccc; /* Softer gray for the subtitle */
 }
 
 .status h2 {
-    margin-bottom: 20px;
     font-size: 2rem;
-    color: #ff6600;
+    color: #ff6600; /* Accent color for server section */
+    margin-bottom: 20px;
 }
 
 .status-card {
-    background-color: #292929;
+    background-color: #292929; /* Dark card background */
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
     margin: 0 auto; /* Center the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .status-card h3 {
@@ -106,6 +114,8 @@ body {
     font-size: 1.2rem;
     color: #cccccc;
 }
+
+
 
 /* Footer */
 .footer {
