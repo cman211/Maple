@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Replace these values with your actual webhook URL and API key
-    const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace with your webhook URL
-    const apiKey = "c18f4090770f3529018b8b22aff75ce8b3db36e464ca765b6eec814e48e42b73"; // Replace with your BotGhost API key
+    const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Your BotGhost webhook URL
+    const apiKey = "c18f4090770f3529018b8b22aff75ce8b3db36e464ca765b6eec814e48e42b73"; // Your BotGhost API key
 
-    // Function to fetch bot status
+    /**
+     * Fetch Bot Status
+     */
     const fetchBotStatus = () => {
         const statusElement = document.getElementById("bot-status");
         statusElement.innerText = "Checking...";
@@ -14,10 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Authorization": apiKey,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ variables: [] }), // No variables required for status
+            body: JSON.stringify({
+                variables: [] // No variables required for status
+            }),
         })
             .then((response) => response.json())
             .then((data) => {
+                console.log("Bot Status Response:", data);
                 const isOnline = data.online || false; // Adjust based on API response
                 statusElement.innerText = isOnline ? "Online" : "Offline";
             })
@@ -27,7 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
-    // Function to fetch server count
+    /**
+     * Fetch Server Count
+     */
     const fetchServerCount = () => {
         const serverElement = document.getElementById("server-count");
         serverElement.innerText = "Loading...";
@@ -38,10 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Authorization": apiKey,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ variables: [] }), // No variables required for server count
+            body: JSON.stringify({
+                variables: [] // No variables required for server count
+            }),
         })
             .then((response) => response.json())
             .then((data) => {
+                console.log("Server Count Response:", data);
                 const serverCount = data.server_count || 0; // Adjust based on API response
                 serverElement.innerText = serverCount;
             })
@@ -51,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
-    // Function to trigger the custom event
+    /**
+     * Trigger Custom Event
+     */
     const triggerCustomEvent = () => {
         const button = document.getElementById("maple-event");
         button.innerText = "Triggering...";
@@ -88,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
-    // Add event listeners for the buttons
+    // Add event listener for the custom event button
     document.getElementById("maple-event").addEventListener("click", triggerCustomEvent);
 
     // Fetch bot status and server count on page load
