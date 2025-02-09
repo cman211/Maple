@@ -54,14 +54,7 @@ body {
 .herobg {
     background: url("Maple.webp") no-repeat center center;
     background-size: cover;
-    background-attachment: scroll; /* Ensure background moves with page */
-    height: 100vh; /* Full-screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 100px; /* Space above the server section */
+    height: 90vh;
 }
 
 @media only screen and (max-device-width: 1600px) {
