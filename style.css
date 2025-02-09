@@ -54,8 +54,12 @@ body {
 .herobg {
     background: url("Maple.webp") no-repeat center center;
     background-size: cover;
-    height: 90vh;
+    background-attachment: scroll;
+    height: 100vh;
+    position: relative; /* Ensure scrolling applies */
+    z-index: 1;
 }
+
 
 @media only screen and (max-device-width: 1600px) {
     .herobg {
