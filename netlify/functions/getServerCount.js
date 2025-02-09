@@ -2,7 +2,8 @@ const fetch = require("node-fetch");
 
 exports.handler = async function () {
     try {
-        const response = await fetch("https://discord.com/api/v10/users/@me/guilds", {
+        // Fetch bot's server count from Discord API
+        const response = await fetch("https://discord.com/api/v10/applications/@me", {
             method: "GET",
             headers: {
                 "Authorization": `Bot ${process.env.BOT_TOKEN}`,
@@ -14,8 +15,8 @@ exports.handler = async function () {
             throw new Error(`Discord API returned ${response.status}`);
         }
 
-        const guilds = await response.json();
-        const serverCount = guilds.length;
+        const data = await response.json();
+        const serverCount = data.approximate_guild_count || "Unknown"; // Get server count
 
         return {
             statusCode: 200,
