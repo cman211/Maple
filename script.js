@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace with your webhook URL
-    const apiKey = process.env.BOTGHOST_API_KEY; // Securely injected via Netlify
+    // Replace with your actual webhook URL and API key
+    const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace this
+    const apiKey = "YOUR_API_KEY"; // Replace this
 
-    // Function to fetch bot status
+    /**
+     * Fetch Bot Status
+     */
     const fetchBotStatus = () => {
         const statusElement = document.getElementById("bot-status");
         statusElement.innerText = "Checking...";
@@ -18,18 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         name: "status_check",
                         variable: "{status_check}",
-                        value: "true", // Adjust variable names/values as needed
+                        value: "true",
                     },
                 ],
             }),
         })
             .then((response) => {
-                console.log("Webhook HTTP Status (Bot Status):", response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP status ${response.status}`);
+                }
                 return response.json();
             })
             .then((data) => {
-                console.log("Webhook Response Data (Bot Status):", data);
-                const isOnline = data.online || false; // Match the BotGhost API response structure
+                console.log("Bot Status Response:", data);
+                const isOnline = data.online || false;
                 statusElement.innerText = isOnline ? "Online" : "Offline";
             })
             .catch((error) => {
@@ -38,7 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
-    // Function to fetch server count
+    /**
+     * Fetch Server Count
+     */
     const fetchServerCount = () => {
         const serverElement = document.getElementById("server-count");
         serverElement.innerText = "Loading...";
@@ -54,18 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                         name: "server_check",
                         variable: "{server_check}",
-                        value: "true", // Adjust variable names/values as needed
+                        value: "true",
                     },
                 ],
             }),
         })
             .then((response) => {
-                console.log("Webhook HTTP Status (Server Count):", response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP status ${response.status}`);
+                }
                 return response.json();
             })
             .then((data) => {
-                console.log("Webhook Response Data (Server Count):", data);
-                const serverCount = data.server_count || 0; // Match the BotGhost API response structure
+                console.log("Server Count Response:", data);
+                const serverCount = data.server_count || 0;
                 serverElement.innerText = serverCount;
             })
             .catch((error) => {
@@ -74,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     };
 
-    // Function to trigger the custom event
+    /**
+     * Trigger Custom Event
+     */
     const triggerCustomEvent = () => {
         const button = document.getElementById("maple-event");
         const statusElement = document.getElementById("custom-event-status");
@@ -92,30 +103,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 variables: [
                     {
                         name: "nickname",
-                        variable: "{nickname}", // Adjust to match the custom event variable in BotGhost
+                        variable: "{nickname}",
                         value: "Maple",
                     },
                 ],
             }),
         })
             .then((response) => {
-                console.log("Webhook HTTP Status (Custom Event):", response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP status ${response.status}`);
+                }
                 return response.json();
             })
             .then((data) => {
-                console.log("Webhook Response Data (Custom Event):", data);
+                console.log("Custom Event Response:", data);
                 if (data.error) {
                     statusElement.innerText = "Failed: " + data.error;
-                    alert("Custom event triggered but returned an error: " + data.error);
                 } else {
                     statusElement.innerText = "Custom event triggered successfully!";
-                    alert("Maple event triggered successfully!");
                 }
             })
             .catch((error) => {
                 console.error("Error triggering custom event:", error);
                 statusElement.innerText = "Error triggering event. Check console.";
-                alert("Failed to trigger the custom event. Check console for details.");
             })
             .finally(() => {
                 button.innerText = "Trigger Maple Event";
