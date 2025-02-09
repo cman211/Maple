@@ -117,3 +117,69 @@ body {
     margin: 0;
     color: #cccccc;
 }
+
+/* Features Section */
+.features {
+    padding: 40px 20px;
+    background-color: #121212; /* Slightly lighter than the main background */
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #ff6600; /* Accent color for the section title */
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: center; /* Center the feature boxes */
+    align-items: stretch; /* Ensure equal height for all boxes */
+    gap: 20px; /* Space between boxes */
+    flex-wrap: wrap; /* Wrap boxes for smaller screens */
+}
+
+.feature-item {
+    background-color: #292929; /* Dark background for feature cards */
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px; /* Fixed width for consistent design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.feature-item i {
+    font-size: 2.5rem; /* Icon size */
+    color: #ff6600; /* Accent color for icons */
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #ffffff; /* White text for titles */
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #cccccc; /* Softer gray for descriptions */
+}
+
+/* Responsive Design for Features Section */
+@media (max-width: 768px) {
+    .feature-grid {
+        flex-direction: column; /* Stack boxes vertically on smaller screens */
+        align-items: center; /* Center align the stacked boxes */
+    }
+
+    .feature-item {
+        width: 90%; /* Expand boxes to almost full width */
+    }
+}
+
