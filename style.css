@@ -75,13 +75,13 @@ body {
 
 
 
-.hero h1 {
+.herobg h1 {
     font-size: 3rem; /* Large font size for title */
     margin-bottom: 10px; /* Space below the title */
     color: #ffffff; /* White text for visibility */
 }
 
-.hero p {
+.herobg p {
     font-size: 1.5rem; /* Slightly smaller font size for subtitle */
     color: #cccccc; /* Softer gray for subtitle */
     margin-bottom: 0; /* Align with title without extra spacing */
