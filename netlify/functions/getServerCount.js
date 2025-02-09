@@ -1,7 +1,26 @@
 const fetch = require("node-fetch");
 
+// In-memory cache
+let cachedServerCount = null;
+let cacheExpiration = 0; // Timestamp for when the cache expires
+
 exports.handler = async function () {
     console.log("Starting getServerCount function...");
+
+    const CACHE_DURATION = 5 * 60 * 1000; // Cache duration in milliseconds (5 minutes)
+
+    // Check if the cache is valid
+    if (cachedServerCount !== null && Date.now() < cacheExpiration) {
+        console.log("✅ Returning cached server count:", cachedServerCount);
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ server_count: cachedServerCount }),
+        };
+    }
 
     try {
         if (!process.env.BOT_TOKEN) {
@@ -34,6 +53,10 @@ exports.handler = async function () {
         const serverCount = guilds.length;
 
         console.log(`✅ Successfully fetched server count: ${serverCount}`);
+
+        // Update the cache
+        cachedServerCount = serverCount;
+        cacheExpiration = Date.now() + CACHE_DURATION;
 
         return {
             statusCode: 200,
