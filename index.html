@@ -4,28 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maple Bot Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <h1>Maple Bot Dashboard</h1>
 
-    <!-- Bot Status -->
-    <div>
-        <h3>Bot Status</h3>
-        <p id="bot-status">Checking...</p>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🌿 Maple Bot</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="#"><i class="fas fa-list"></i> Commands</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
     </div>
 
-    <!-- Server Count -->
-    <div>
-        <h3>Server Count</h3>
-        <p id="server-count">Loading...</p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome to Maple Dashboard 🌟</h1>
+        </header>
+
+        <section class="dashboard">
+            <!-- Bot Status Card -->
+            <div class="card">
+                <h3>🔌 Bot Status</h3>
+                <p id="bot-status">Checking...</p>
+            </div>
+
+            <!-- Server Count Card -->
+            <div class="card">
+                <h3>🖥️ Servers</h3>
+                <p id="server-count">Loading...</p>
+            </div>
+
+            <!-- Custom Event Card -->
+            <div class="card">
+                <h3>🎮 Maple Custom Event</h3>
+                <button id="maple-event">Trigger Maple Event</button>
+            </div>
+        </section>
     </div>
 
-    <!-- Custom Event -->
-    <div>
-        <h3>Trigger Maple Event</h3>
-        <button id="maple-event">Trigger Maple Event</button>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
