@@ -51,7 +51,7 @@ body {
 }
 
 /* Hero Background */
-.hero {
+.herobg {
     background: url("Maple.webp") no-repeat center center;
     background-size: cover;
     background-attachment: scroll; /* Scroll with the page */
