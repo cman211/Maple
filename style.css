@@ -169,3 +169,24 @@ body {
 .footer .w3-button:hover {
     background-color: #e65c00;
 }
+/* Discord Icon Button */
+.discord-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7289da; /* Discord's brand color */
+    color: #ffffff;
+    font-size: 24px; /* Icon size */
+    width: 50px; /* Make it a circular button */
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.discord-icon:hover {
+    background-color: #5b6eae; /* Darker Discord color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
