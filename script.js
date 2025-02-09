@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const webhookUrl = "YOUR_BOTGHOST_WEBHOOK_URL"; // Replace with your actual BotGhost Webhook URL
+    const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace with your actual BotGhost Webhook URL
 
     // Check bot status
     fetch(webhookUrl + "/status", {
