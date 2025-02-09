@@ -34,6 +34,11 @@ body {
     margin: 0;
     padding: 0;
 }
+@media only screen and (max-device-width: 1600px) {
+  .herobg {
+     background-attachment: scroll;
+     min-height: 400px;
+  }
 
 .navbar nav ul li {
     margin: 0 15px;
