@@ -34,11 +34,6 @@ body {
     margin: 0;
     padding: 0;
 }
-@media only screen and (max-device-width: 1600px) {
-  .herobg {
-     background-attachment: scroll;
-     min-height: 400px;
-  }
 
 .navbar nav ul li {
     margin: 0 15px;
@@ -59,7 +54,7 @@ body {
 .herobg {
     background: url("Maple.webp") no-repeat center center;
     background-size: cover;
-    background-attachment: scroll; /* Scroll with the page */
+    background-attachment: scroll; /* Ensure background moves with page */
     height: 100vh; /* Full-screen height */
     display: flex;
     flex-direction: column;
@@ -69,6 +64,11 @@ body {
     padding-bottom: 100px; /* Space above the server section */
 }
 
+@media only screen and (max-device-width: 1600px) {
+    .herobg {
+        min-height: 400px; /* Maintain consistent height */
+    }
+}
 
 .hero h1 {
     font-size: 3rem; /* Large font size for title */
