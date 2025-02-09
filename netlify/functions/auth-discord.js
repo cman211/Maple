@@ -7,7 +7,7 @@ exports.handler = async () => {
   return {
     statusCode: 302,
     headers: {
-      Location: `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=code&scope=identify&redirect_uri=${redirectUri}`,
+      Location: `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`,
     },
   };
 };
