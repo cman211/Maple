@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Replace with your actual webhook URL and API key
     const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace this
-    const apiKey = "YOUR_API_KEY"; // Replace this
+    const apiKey = process.env.BOTGHOST_API_KEY;
 
     /**
      * Fetch Bot Status
