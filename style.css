@@ -52,25 +52,25 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url("Maple.webp") no-repeat center center/cover;
-    height: 100vh;
+    background: url("Maple.webp") no-repeat center center/cover; /* Full-width background */
+    height: 100vh; /* Full-screen height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Start content at the top */
     align-items: center;
     text-align: center;
-    padding-bottom: 120px; /* Bring text lower */
+    padding-top: 200px; /* Move content further down */
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #ffffff;
+    font-size: 3rem; /* Large font size for title */
+    margin-bottom: 10px; /* Space below the title */
+    color: #ffffff; /* White text for visibility */
 }
 
 .hero p {
-    font-size: 1.5rem;
-    color: #cccccc;
+    font-size: 1.5rem; /* Slightly smaller font size for subtitle */
+    color: #cccccc; /* Softer gray for subtitle */
 }
 
 /* Status Section */
