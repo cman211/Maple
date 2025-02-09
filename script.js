@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const response = await fetch("/.netlify/functions/getServerCount");
         const data = await response.json();
 
-        // Update the page with the server count
-        if (data.server_count !== undefined) {
+        // Only update if data is valid
+        if (data.server_count !== undefined && !isNaN(data.server_count)) {
             serverCountElement.innerText = `${data.server_count} Servers`;
         } else {
-            serverCountElement.innerText = "Error: No Data";
+            serverCountElement.innerText = "Error: Could not load server count";
         }
     } catch (error) {
         console.error("Error fetching server count:", error);
