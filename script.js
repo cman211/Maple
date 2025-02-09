@@ -15,11 +15,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Check if we received a valid number
         if (typeof data.server_count === "number" && !isNaN(data.server_count)) {
             serverCountElement.innerText = `${data.server_count} Servers`;
-        } else {
-            serverCountElement.innerText = "⚠️ Error: Invalid server data received.";
-        }
-    } catch (error) {
-        console.error("Error fetching server count:", error);
-        serverCountElement.innerText = "⚠️ Error: Could not load server count.";
-    }
+        } 
 });
