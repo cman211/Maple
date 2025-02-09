@@ -53,23 +53,42 @@ body {
 /* Hero Background */
 /* Default: Fixed background for large screens */
 .herobg {
-    background: url("Maple.webp") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed; /* Keeps background fixed */
-    height: 100vh;
+    position: relative; /* Ensures proper stacking */
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     text-align: center;
     padding-bottom: 100px; /* Space above the server section */
+    
+    /* Background Image */
+    background: url("Maple.webp") no-repeat center center;
+    background-size: cover;
 }
 
-/* Override: Scroll background on smaller screens */
+/* Trick to force "fixed" effect on iOS */
+.herobg::before {
+    content: "";
+    position: fixed; /* Fake fixed background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url("Maple.webp") no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Push behind content */
+}
+
+/* Small Screens: Force Scroll */
 @media only screen and (max-width: 1600px) {
     .herobg {
-        background-attachment: scroll; /* Allows background to scroll on smaller screens */
+        background-attachment: scroll !important;
         min-height: 400px;
+    }
+    
+    .herobg::before {
+        display: none; /* Hide fake fixed background */
     }
 }
 
