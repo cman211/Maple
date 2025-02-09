@@ -14,19 +14,19 @@
         <div class="container">
             <img src="Maple_logo.webp" alt="Maple Logo" class="logo">
             <nav>
-                <ul>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="#herobg">About</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="https://discord.gg/Zyw8gGef" target="_blank">Support Server</a></li>
-                        <li><a href="https://discord.com/oauth2/authorize?client_id=1334800960320700416&scope=applications.commands%20bot&permissions=8" target="_blank">Bot Invite</a></li>
-                    </ul>
-                    </nav>
-                </ul>
-            </nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard.html">Dashboard</a></li>
+                <li><a href="/features.html">Features</a></li>
+                <li><a href="https://discord.gg/Zyw8gGef">Support</a></li>
+                <li id="login-btn"><a href="/.netlify/functions/auth-discord">Login</a></li>
+                <li id="profile-container" style="display: none;">
+                    <img id="profile-pic" src="" class="profile-img">
+                    <button id="logout-btn">Logout</button>
+                </li>
+            </ul>
+        </nav>
+
         </div>
     </header>
 <div class="herobg">
