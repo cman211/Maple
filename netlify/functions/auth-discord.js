@@ -1,9 +1,7 @@
-const fetch = require("node-fetch");
-
 exports.handler = async () => {
-  const clientId = process.env.DISCORD_CLIENT_ID;
-  const redirectUri = process.env.REDIRECT_URI;
-  
+  const clientId = process.env.DISCORD_CLIENT_ID; // Securely fetched from Netlify
+  const redirectUri = process.env.REDIRECT_URI;  // Securely fetched from Netlify
+
   return {
     statusCode: 302,
     headers: {
