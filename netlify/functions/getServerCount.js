@@ -2,10 +2,11 @@ const fetch = require("node-fetch");
 
 exports.handler = async function () {
     try {
-        const response = await fetch("https://discord.com/api/v10/users/@me/guilds", {
+        const response = await fetch("https://discord.com/api/v10/applications/@me", {
             method: "GET",
             headers: {
                 "Authorization": `Bot ${process.env.BOT_TOKEN}`,
+                "Content-Type": "application/json",
             },
         });
 
@@ -17,12 +18,19 @@ exports.handler = async function () {
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ server_count: data.length }),
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Prevent CORS issues
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ server_count: data.approximate_guild_count || "Unknown" }),
         };
     } catch (error) {
         console.error("Error fetching server count:", error);
         return {
             statusCode: 500,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Prevent CORS issues
+            },
             body: JSON.stringify({ error: "Failed to fetch server count" }),
         };
     }
