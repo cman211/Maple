@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ✅ Replace this with your actual BotGhost webhook URL
     const webhookUrl = "https://api.botghost.com/webhook/1190388832617627709/3vyepb0ylzxnocljxvm18e"; // Replace this
-    const apiKey = process.env.BOTGHOST_API_KEY;
+    const apiKey = "c18f4090770f3529018b8b22aff75ce8b3db36e464ca765b6eec814e48e42b73";
 
 
     /**
