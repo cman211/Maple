@@ -1,17 +1,15 @@
 const fetch = require("node-fetch");
 
-// In-memory cache
 let cachedServerCount = null;
-let cacheExpiration = 0; // Timestamp for when the cache expires
+let cacheExpiration = 0;
 
 exports.handler = async function () {
     console.log("Starting getServerCount function...");
 
-        const CACHE_DURATION = 1 * 60 * 1000; // 1 minute in milliseconds
+    const CACHE_DURATION = 1 * 60 * 1000; // Cache duration set to 1 minute
 
-    // Check if the cache is valid
     if (cachedServerCount !== null && Date.now() < cacheExpiration) {
-        console.log("✅ Returning cached server count:", cachedServerCount);
+        console.log("Returning cached server count:", cachedServerCount);
         return {
             statusCode: 200,
             headers: {
@@ -31,7 +29,6 @@ exports.handler = async function () {
             };
         }
 
-        console.log("Fetching data from Discord API...");
         const response = await fetch("https://discord.com/api/v10/users/@me/guilds", {
             method: "GET",
             headers: {
@@ -52,9 +49,7 @@ exports.handler = async function () {
         const guilds = await response.json();
         const serverCount = guilds.length;
 
-        console.log(`✅ Successfully fetched server count: ${serverCount}`);
-
-        // Update the cache
+        console.log(`✅ Fetched server count: ${serverCount}`);
         cachedServerCount = serverCount;
         cacheExpiration = Date.now() + CACHE_DURATION;
 
@@ -67,7 +62,7 @@ exports.handler = async function () {
             body: JSON.stringify({ server_count: serverCount }),
         };
     } catch (error) {
-        console.error("❌ Unexpected error in getServerCount:", error.message);
+        console.error("❌ Unexpected error:", error.message);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: "Failed to fetch server count" }),
