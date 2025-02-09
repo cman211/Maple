@@ -2,15 +2,18 @@ const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
   const code = new URLSearchParams(event.queryStringParameters).get("code");
-  if (!code) return { statusCode: 400, body: "Missing authorization code" };
+
+  if (!code) {
+    return { statusCode: 400, body: "Missing authorization code" };
+  }
 
   const clientId = process.env.DISCORD_CLIENT_ID;
   const clientSecret = process.env.DISCORD_CLIENT_SECRET;
-  const redirectUri = process.env.REDIRECT_URI;
-  
+  const redirectUri = "https://maple-official.netlify.app/.netlify/functions/auth-callback";
+
   try {
-    // Exchange code for token
-    const tokenRes = await fetch("https://discord.com/api/oauth2/token", {
+    // Exchange the code for an access token
+    const tokenResponse = await fetch("https://discord.com/api/oauth2/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
@@ -20,22 +23,37 @@ exports.handler = async (event) => {
         code,
         redirect_uri: redirectUri,
       }),
-    }).then((res) => res.json());
+    });
 
-    // Fetch user info
-    const userRes = await fetch("https://discord.com/api/users/@me", {
-      headers: { Authorization: `Bearer ${tokenRes.access_token}` },
-    }).then((res) => res.json());
+    const tokenData = await tokenResponse.json();
 
-    // Store user info in a Netlify session (via cookie)
+    if (!tokenData.access_token) {
+      return { statusCode: 500, body: "Failed to get access token" };
+    }
+
+    // Use the token to fetch the user's Discord profile
+    const userResponse = await fetch("https://discord.com/api/users/@me", {
+      headers: { Authorization: `Bearer ${tokenData.access_token}` },
+    });
+
+    const userData = await userResponse.json();
+
+    if (!userData.id) {
+      return { statusCode: 500, body: "Failed to fetch user details" };
+    }
+
+    // Redirect to the dashboard with user info in a cookie
     return {
       statusCode: 302,
       headers: {
-        "Set-Cookie": `user=${JSON.stringify(userRes)}; Path=/; HttpOnly`,
-        Location: "/dashboard.html",
+        "Set-Cookie": `user=${JSON.stringify(userData)}; Path=/; HttpOnly`,
+        Location: "/dashboard.html", // Redirect to dashboard
       },
     };
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify(error) };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "OAuth2 Callback Error", details: error }),
+    };
   }
 };
