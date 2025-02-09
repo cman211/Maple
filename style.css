@@ -51,8 +51,8 @@ body {
 }
 
 /* Hero Background */
-.hero {
-    background: url("Maple.webp") no-repeat center center/cover;
+.logo {
+    background: url("Maple_logo.webp") no-repeat center center/cover;
     background-attachment: scroll; /* Make the background scroll with the page */
     height: 100vh; /* Full-screen height */
 }
