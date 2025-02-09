@@ -6,7 +6,7 @@
     <title>Maple Bot Dashboard</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css"> <!-- Link to the custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -14,7 +14,6 @@
         <div class="w3-bar w3-white w3-card" id="myNavbar">
             <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
             <a href="#status" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i> STATUS</a>
-            <a href="#servers" class="w3-bar-item w3-button"><i class="fa fa-server"></i> SERVERS</a>
             <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> ABOUT</a>
         </div>
     </div>
@@ -28,21 +27,15 @@
     </div>
 
     <!-- Status Section -->
-    <div class="w3-center" id="status">
-        <div class="w3-row-padding">
+    <div class="w3-content w3-container w3-padding-64" id="status">
+        <h2 class="w3-center">Bot Status</h2>
+        <div class="w3-row-padding w3-center">
             <div class="w3-col m6">
                 <div class="w3-card-4 w3-padding w3-center status-card">
                     <h3>🔌 Bot Status</h3>
                     <p id="bot-status">Checking...</p>
                 </div>
             </div>
-            <br>
-        </div>
-    </div>
-    <div>    
-        <div class="w3-content w3-container w3-padding-64" id="count">
-        <div class="w3-row-padding">
-            <div class="w3-col m6">
             <div class="w3-col m6">
                 <div class="w3-card-4 w3-padding w3-center status-card">
                     <h3>🖥️ Server Count</h3>
@@ -51,21 +44,18 @@
             </div>
         </div>
     </div>
-</div>
 
     <!-- About Section -->
     <div class="w3-content w3-container w3-padding-64" id="about">
         <h2 class="w3-center">About Maple Bot</h2>
-        <p>Maple Bot is a versatile and powerful bot designed to manage and enhance your servers with ease. Whether it's automating tasks, engaging users, or tracking server statistics, Maple Bot has got you covered!</p>
+        <p>Maple Bot is a versatile and powerful bot designed to manage and enhance your servers with ease.</p>
     </div>
 
-</div>
-</div>
-</div>
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-16">
         <p>© 2025 Maple Bot Dashboard. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script> <!-- Your JavaScript file -->
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
