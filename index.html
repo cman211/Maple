@@ -4,55 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maple Bot Dashboard</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-card" id="myNavbar">
-            <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
-            <a href="#status" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i> STATUS</a>
-             <a href="#servers" class="w3-bar-item w3-button"><i class="fa fa-dashboard"></i> SERVERS</a>
-            <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> ABOUT</a>
+    <header class="navbar">
+        <div class="container">
+            <img src="Maple.webp" alt="Maple Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
     <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="hero-text">
-            <div class="hero-section" style="background-image: url('Maple.webp');">
-            <h1>Maple Bot Dashboard</h1>
-            <p>Your all-in-one bot management system.</p>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Maple Bot Dashboard</h1>
+            <p>Your ultimate bot management platform.</p>
         </div>
-        </div>
-    </div>
+    </section>
 
     <!-- Status Section -->
-
-    <div class="container">
-        <h1>🌿 Maple Bot Dashboard</h1>
-        <div class="card">
-            <h2>🖥️ Server Count</h2>
-            <p id="server-count">Loading...</p>  <!-- ✅ MAKE SURE THIS EXISTS -->
+    <section class="status">
+        <div class="container">
+            <h2>Bot Status</h2>
+            <div class="status-card">
+                <h3>🌍 Active Servers</h3>
+                <p id="server-count">Loading...</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
-
-
-    <!-- About Section -->
-    <div class="w3-content w3-container w3-padding-64" id="about">
-        <h2 class="w3-center">About Maple Bot</h2>
-        <p>Maple Bot is a versatile and powerful bot designed to manage and enhance your servers with ease.</p>
-    </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fa fa-cogs"></i>
+                    <h3>Easy Management</h3>
+                    <p>Seamlessly control and monitor your bots with a few clicks.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa fa-lock"></i>
+                    <h3>Secure</h3>
+                    <p>We prioritize your privacy and security above all else.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa fa-line-chart"></i>
+                    <h3>Detailed Analytics</h3>
+                    <p>Track performance metrics to optimize your bot usage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-16">
-        <p>© 2025 Maple Bot Dashboard. All rights reserved.</p>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>© 2025 Maple Bot Dashboard. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
