@@ -56,10 +56,10 @@ body {
     height: 100vh; /* Full-screen height */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Start content at the top */
+    justify-content: flex-end; /* Push content to the bottom */
     align-items: center;
     text-align: center;
-    padding-top: 200px; /* Move content further down */
+    padding-bottom: 100px; /* Adjust the space above the Server Count Section */
 }
 
 .hero h1 {
@@ -71,6 +71,7 @@ body {
 .hero p {
     font-size: 1.5rem; /* Slightly smaller font size for subtitle */
     color: #cccccc; /* Softer gray for subtitle */
+    margin-bottom: 0; /* Align with title without extra spacing */
 }
 
 /* Status Section */
