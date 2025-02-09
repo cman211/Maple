@@ -73,56 +73,36 @@ body {
     color: #cccccc;
 }
 
-/* Features Section */
-.features {
+/* Status Section */
+.status {
     padding: 40px 20px;
     background-color: #121212;
-    text-align: center;
+    text-align: center; /* Center the section */
 }
 
-.features h2 {
-    margin-bottom: 30px;
+.status h2 {
+    margin-bottom: 20px;
     font-size: 2rem;
-    color: #ffffff;
+    color: #ff6600;
 }
 
-.feature-grid {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.feature-item {
+.status-card {
     background-color: #292929;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    max-width: 400px;
+    margin: 0 auto; /* Center the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.feature-item i {
-    font-size: 2.5rem;
-    color: #ff6600;
-    margin-bottom: 15px;
-}
-
-.feature-item h3 {
+.status-card h3 {
     font-size: 1.5rem;
-    color: #ffffff;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
-.feature-item p {
-    font-size: 1rem;
+.status-card p {
+    font-size: 1.2rem;
     color: #cccccc;
 }
 
@@ -136,24 +116,4 @@ body {
 .footer p {
     margin: 0;
     color: #cccccc;
-}
-
-.discord-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #7289da; /* Discord blue */
-    color: #ffffff;
-    font-size: 24px; /* Icon size */
-    width: 50px; /* Circle size */
-    height: 50px;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.discord-icon:hover {
-    background-color: #5b6eae; /* Darker Discord blue on hover */
-    transform: scale(1.1);
 }
