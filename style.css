@@ -3,22 +3,25 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
     display: flex;
 }
 
 /* Sidebar */
 .sidebar {
     width: 250px;
-    background: #2c3e50;
+    background: #17202A;
     color: white;
     padding-top: 20px;
     height: 100vh;
     position: fixed;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar h2 {
     text-align: center;
+    font-size: 22px;
 }
 
 .sidebar ul {
@@ -29,6 +32,12 @@ body {
 .sidebar ul li {
     padding: 15px;
     text-align: left;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background: #34495e;
+    cursor: pointer;
 }
 
 .sidebar ul li a {
@@ -36,14 +45,11 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
+    font-size: 16px;
 }
 
 .sidebar ul li a i {
     margin-right: 10px;
-}
-
-.sidebar ul li:hover {
-    background: #34495e;
 }
 
 /* Main Content */
@@ -57,11 +63,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ecf0f1;
+    background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Button */
 button {
     padding: 10px 15px;
     background: #2980b9;
@@ -69,6 +78,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -83,10 +93,10 @@ button:hover {
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 30%;
 }
